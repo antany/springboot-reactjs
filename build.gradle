@@ -1,0 +1,16 @@
+defaultTasks 'mergePackage'
+
+task buildAll{
+	dependsOn ':ui:npm_run_build'
+	dependsOn ':api:build'
+	doLast(){
+		println "UI & Api has been build"
+	}
+}
+
+task mergePackage(type: DefaultTask){
+	dependsOn buildAll
+	doLast(){
+		println "Package Created.."
+	}
+}
